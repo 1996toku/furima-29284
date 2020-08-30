@@ -2,23 +2,21 @@
 
 ## users テーブル
 
-| Column          | Type   | Options     |
-| --------------- | ------ | ----------- |
-| name            | string | null: false |
-| email           | string | null: false |
-| password        | string | null: false |
-| last_name       | string | null: false |
-| first_name      | string | null: false |
-| last_name_kana  | string | null: false |
-| first_name_kana | string | null: false |
-| year_of_birth   | string | null: false |
-| birth_month     | string | null: false |
-| birthday        | string | null: false |
+| Column          | Type    | Options     |
+| --------------- | ------- | ----------- |
+| name            | string  | null: false |
+| email           | string  | null: false |
+| password        | string  | null: false |
+| last_name       | string  | null: false |
+| first_name      | string  | null: false |
+| last_name_kana  | string  | null: false |
+| first_name_kana | string  | null: false |
+| birthday        | date    | null: false |
 
 ### Association
 
 - has_many :items
-- has_many :purchse
+- has_many :purchses
 
 ## items テーブル
 
