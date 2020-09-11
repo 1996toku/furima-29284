@@ -17,13 +17,17 @@ class Item < ApplicationRecord
     validates :shopping_chipping
     validates :area_of_delivary
     validates :days_until_shopping
-    validates :user_id
-    validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999},format: { with: /\A[\d]\z/, message: 'half-width numbers' }
+    validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999}, format: { with: /\A[\d]+\z/, message: 'half-width numbers' }
+    validates :image, unless: :was_attached?
   end
 
-  validates :category_id, numericality: { other_than: 1 } 
-  validates :status_id, numericality: { other_than: 1 } 
-  validates :shopping_chipping_id, numericality: { other_than: 1 } 
-  validates :area_of_delivary_id, numericality: { other_than: 1 } 
-  validates :days_until_shopping_id, numericality: { other_than: 1 } 
+  validates :category_id, numericality: { other_than: 1 }
+  validates :status_id, numericality: { other_than: 1 }
+  validates :shopping_chipping_id, numericality: { other_than: 1 }
+  validates :area_of_delivary_id, numericality: { other_than: 1 }
+  validates :days_until_shopping_id, numericality: { other_than: 1 }
+
+  def was_attached?
+    image.attached?
+  end
 end
