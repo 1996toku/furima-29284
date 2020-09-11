@@ -16,7 +16,7 @@
 ### Association
 
 - has_many :items
-- has_many :purchses
+- has_many :purchases
 
 ## items テーブル
 
@@ -30,7 +30,7 @@
 | shopping_chipping   | integer    | null: false                    |
 | area_of_delivary    | integer    | null: false                    |
 | days_until_shopping | integer    | null: false                    |
-| price               | integer    | null: false, foreign_key: true |
+| price               | integer    | null: false                    |
 | user                | references | null: false, foreign_key: true |
 
 ### Association
