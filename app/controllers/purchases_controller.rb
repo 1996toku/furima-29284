@@ -4,8 +4,7 @@ class PurchasesController < ApplicationController
   def index
     @purchase = PurchaseStreetAddress.new
     @item = Item.find(params[:item_id])
-    # binding.pry
-    if current_user.id == @item.user_id
+    if (current_user.id == @item.user_id) || (Purchase.find_by(item_id: params[:item_id]) != nil)
       redirect_to root_path
     end
   end
@@ -13,7 +12,6 @@ class PurchasesController < ApplicationController
   def create
     @purchase = PurchaseStreetAddress.new(purchase_params)
     @item = Item.find(params[:item_id])
-    # binding.pry
     if @purchase.valid?
       pay_item
       @purchase.save
