@@ -6,11 +6,11 @@ class PurchaseStreetAddress
     validates :token
     validates :price
 
-    validates :postal_code
+    validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: "is invalid. Input half-width 7 characters including hyphen."}
     validates :city
     validates :address
-    validates :phone_nunber
-    validates :prefectures_id
+    validates :phone_nunber, length: { maximum: 11 }
+    validates :prefectures_id, numericality: { other_than: 1 }
   end
 
   def save
