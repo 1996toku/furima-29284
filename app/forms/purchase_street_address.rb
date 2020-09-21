@@ -4,7 +4,6 @@ class PurchaseStreetAddress
 
   with_options presence: true do
     validates :token
-    validates :price
 
     validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: "is invalid. Input half-width 7 characters including hyphen."}
     validates :city
