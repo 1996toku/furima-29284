@@ -12,7 +12,7 @@ RSpec.describe PurchaseStreetAddress, type: :model do
     describe '商品購入' do
       context '商品購入がうまくいくとき' do
         it 'クレジットカード情報,postal_code,prefecture_id,city,address,building_name,phone_nunber,が存在すれば登録できる' do
-           expect(@purchase).to be_valid
+          expect(@purchase).to be_valid
         end
         it 'building_nameが入力されていなくても登録できる' do
           @purchase.building_name = ''
@@ -42,12 +42,12 @@ RSpec.describe PurchaseStreetAddress, type: :model do
         it 'postal_codeが半角数字3文字、ハイフン、半角数字4文字の順でなければ登録できない' do
           @purchase.postal_code = '3334444'
           @purchase.valid?
-          expect(@purchase.errors.full_messages).to include("Postal code is invalid. Input half-width 7 characters including hyphen.")
+          expect(@purchase.errors.full_messages).to include('Postal code is invalid. Input half-width 7 characters including hyphen.')
         end
         it 'prefectures_idが1だと登録できない' do
           @purchase.prefectures_id = '1'
           @purchase.valid?
-          expect(@purchase.errors.full_messages).to include("Prefectures must be other than 1")
+          expect(@purchase.errors.full_messages).to include('Prefectures must be other than 1')
         end
         it 'cityが空だと登録できない' do
           @purchase.city = ''
@@ -67,7 +67,7 @@ RSpec.describe PurchaseStreetAddress, type: :model do
         it 'phone_nunberが12桁以上だと登録できない' do
           @purchase.phone_nunber = '123456789123'
           @purchase.valid?
-          expect(@purchase.errors.full_messages).to include("Phone nunber is too long (maximum is 11 characters)")
+          expect(@purchase.errors.full_messages).to include('Phone nunber is too long (maximum is 11 characters)')
         end
       end
     end
