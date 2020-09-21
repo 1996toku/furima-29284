@@ -38,11 +38,11 @@
 - belongs_to :user
 - has_one :purchase
 
-## purchase テーブル
+## purchases テーブル
 
 | Column                | Type       | Options                        |
 | --------------------- | ---------- | ------------------------------ |
-| items                 | references | null: false, foreign_key: true |
+| item                  | references | null: false, foreign_key: true |
 | user                  | references | null: false, foreign_key: true |
 
 ### Association
@@ -51,7 +51,7 @@
 - belongs_to :item
 - has_one :street_address
 
-## street_address テーブル
+## street_addresses テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
